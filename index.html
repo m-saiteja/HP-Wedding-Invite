@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Teja & Bhagya Sri — A Magical Wedding</title>
+  <meta name="description"
+    content="You are cordially invited to the most enchanted wedding of the wizarding year — Sai Teja & Bhagya Sri. 26th August 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css?v=18" />
+</head>
+
+<body>
+
+  <!-- ================================================================
+     AUDIO — Hedwig's Theme (piano)
+     We use a freely available CDN piano cover
+================================================================ -->
+  <audio id="hedwigs-theme" loop preload="none">
+    <source src="assets/audio/hedwigs_theme.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ================================================================
+     AUDIO TOGGLE BUTTON
+================================================================ -->
+  <button id="audio-btn" aria-label="Toggle music">🔊</button>
+
+  <!-- ================================================================
+     STAR CANVAS (HP page background)
+================================================================ -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ================================================================
+     PAGE 0 — TRADITIONAL TELUGU SPLASH
+================================================================ -->
+  <div id="splash-page" role="main">
+
+    <!-- Decorative border frame -->
+    <div class="splash-frame"></div>
+
+    <!-- Corner ornaments (SVG lotus motif) -->
+    <div class="splash-corner tl">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 55 Q5 5 55 5" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="5" cy="55" r="3" />
+        <circle cx="55" cy="5" r="3" />
+        <path d="M5 30 Q18 18 30 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5" />
+        <path d="M5 40 Q22 22 40 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3" />
+      </svg>
+    </div>
+    <div class="splash-corner tr">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 55 Q5 5 55 5" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="5" cy="55" r="3" />
+        <circle cx="55" cy="5" r="3" />
+        <path d="M5 30 Q18 18 30 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5" />
+        <path d="M5 40 Q22 22 40 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3" />
+      </svg>
+    </div>
+    <div class="splash-corner bl">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 55 Q5 5 55 5" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="5" cy="55" r="3" />
+        <circle cx="55" cy="5" r="3" />
+        <path d="M5 30 Q18 18 30 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5" />
+        <path d="M5 40 Q22 22 40 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3" />
+      </svg>
+    </div>
+    <div class="splash-corner br">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 55 Q5 5 55 5" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="5" cy="55" r="3" />
+        <circle cx="55" cy="5" r="3" />
+        <path d="M5 30 Q18 18 30 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5" />
+        <path d="M5 40 Q22 22 40 5" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3" />
+      </svg>
+    </div>
+
+    <!-- Lord Ganesha -->
+    <img src="assets/images/ganesha.png" alt="Lord Ganesha — Vighnaharta, Remover of Obstacles" class="ganesha-img" />
+
+    <!-- Telugu Blessings -->
+    <p class="telugu-blessings">శ్రీరస్తు &nbsp;·&nbsp; శుభమస్తు &nbsp;·&nbsp; అవిఘ్నమస్తు</p>
+    <p class="roman-blessings">Srirastu &nbsp;·&nbsp; Shubhamastu &nbsp;·&nbsp; Avignamastu</p>
+
+    <!-- Subtitle -->
+    <p class="splash-subtitle">
+      With the blessings of Lord Ganesha, we joyfully invite you<br />
+      to witness a most magical and sacred union…
+    </p>
+
+    <!-- Couple Names -->
+    <p class="splash-couple-name">Sai Teja &amp; Bhagya Sri</p>
+
+    <!-- CTA Button -->
+    <button id="open-invite-btn" class="btn-open-invite" aria-label="Open the wedding invitation">
+      Open the Invite <span class="btn-wand">✨</span>
+    </button>
+
+    <!-- Diya decoration -->
+    <div class="splash-diyas" aria-hidden="true">
+      <span>🪔</span>
+      <span>🌸</span>
+      <span>🪔</span>
+      <span>🌸</span>
+      <span>🪔</span>
+    </div>
+
+  </div>
+  <!-- /PAGE 0 -->
+
+
+  <!-- ================================================================
+     PAGE 1 — HARRY POTTER THEMED WEDDING INVITE
+================================================================ -->
+  <div id="invite-page" aria-hidden="true">
+
+    <!-- Magic rain canvas — flowers & stars falling through the invite -->
+    <canvas id="magic-rain-canvas" aria-hidden="true"></canvas>
+
+    <!-- ============================================================
+       SECTION 1 — HERO
+  ============================================================ -->
+    <section id="hero" class="hp-section">
+
+      <!-- Hedwig owls flanking the scroll -->
+      <div class="hero-owl-row" aria-hidden="true">
+        <img src="assets/images/hedwig.png" alt="Hedwig" class="hero-hedwig hero-hedwig--left" />
+        <div class="hero-envelope">📜</div>
+        <img src="assets/images/hedwig.png" alt="Hedwig" class="hero-hedwig hero-hedwig--right" />
+      </div>
+
+      <!-- Badge -->
+      <p class="hero-badge">By Order of the Ministry of Magic</p>
+
+      <!-- Main title -->
+      <h1 class="hero-title">
+        Sai Teja<span class="hero-and">&amp;</span>Bhagya Sri
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline">
+        request the pleasure of your company at<br />
+        <em style="color: var(--gold);">The Most Enchanted Wedding of the Wizarding Year</em>
+      </p>
+
+      <!-- Scroll hint -->
+      <p class="hero-scroll-hint" aria-hidden="true">⬇ Scroll to reveal the magic ⬇</p>
+    </section>
+
+
+    <!-- ============================================================
+       SECTION 2 — THE LETTER / MINISTRY DECREE
+  ============================================================ -->
+    <section id="letter" class="hp-section">
+      <div class="section-inner">
+        <div class="parchment-scroll reveal">
+          <div class="ministry-seal-animated" aria-hidden="true">
+            <span class="icon-bolt-wrapper side-bolt">
+              <svg class="icon-bolt" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" />
+              </svg>
+            </span>
+            <span class="icon-wand-wrapper central-wand">
+              <svg class="icon-wand" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path class="wand-stick" d="M20 80 L75 25" />
+                <path class="wand-handle" d="M17 83 L25 75" />
+                <path class="wand-sparkle" d="M75 25 L80 15 L75 20 L65 20 L70 25 L65 30 L75 28 L85 30 Z" />
+              </svg>
+            </span>
+            <span class="icon-bolt-wrapper side-bolt">
+              <svg class="icon-bolt" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                style="animation-delay: 0.5s;">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" />
+              </svg>
+            </span>
+          </div>
+          <p class="ministry-heading">Ministry of Magic — Matrimonial Decree No. 42</p>
+          <p class="ministry-text">
+            By order of the Ministry of Magic and all powers vested therein,<br />
+            you are <em>hereby summoned</em> to bear witness to the most<br />
+            enchanted union of the wizarding year.<br /><br />
+            Your attendance is NOT optional.<br />
+            The owl that delivered this letter has already<br />
+            <em>RSVP'd on your behalf.</em><br /><br />
+            Arrive with joy. Leave with memories.<br />
+          </p>
+          <div class="letter-seal-container">
+            <img src="assets/images/hogwarts_seal.png" alt="Hogwarts Wax Seal" class="letter-seal" />
+            <p class="parchment-signature">
+              Sealed by the Department of Magical Ceremonies, Hogwarts Chapter
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SECTION 3 — MEET THE COUPLE
+  ============================================================ -->
+    <section id="couple" class="hp-section">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Meet the Wizards</h2>
+        <p class="section-subtitle reveal">Two houses. One epic story.</p>
+
+        <div class="couple-grid">
+
+          <!-- GROOM — SAI TEJA -->
+          <div class="person-card gryffindor reveal">
+            <div class="card-house-badge">🦁 Gryffindor</div>
+            <div class="portrait-flip-container" title="Click to reveal wizard alter ego">
+              <div class="portrait-flip-inner">
+                <div class="portrait-face portrait-front">
+                  <div class="portrait-wrapper">
+                    <img src="assets/images/groom.png" alt="Sai Teja — the Groom" loading="lazy" />
+                  </div>
+                  <span class="alter-ego-hint">✨ Tap to reveal</span>
+                </div>
+                <div class="portrait-face portrait-back">
+                  <div class="portrait-wrapper wizard-wrapper">
+                    <img src="assets/images/groom_wizard.png" alt="Sai Teja — Gryffindor Wizard" loading="lazy" />
+                  </div>
+                  <span class="alter-ego-hint gold-hint">🧙 Gryffindor Wizard</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="card-name">Sai Teja</h3>
+            <p class="card-role">The Groom · Data Wizard · Gryffindor</p>
+            <p class="card-bio">
+              A Data Wizard of the first order — known for charming spreadsheets,
+              taming wild algorithms, and the unprecedented ability to eat biryani at any hour.
+              His Patronus? A Golden Retriever. Because what you see is exactly what you get:
+              loyal, enthusiastic, and always happy to see you. When asked what spell he'd cast on Bhagya Sri,
+              he smiled and said: <em>Amorentum Perpetuus</em> — the kind of love that keeps growing by the day.
+            </p>
+          </div>
+
+          <!-- BRIDE — BHAGYA SRI -->
+          <div class="person-card ravenclaw reveal">
+            <div class="card-house-badge">🦅 Ravenclaw</div>
+            <div class="portrait-flip-container" title="Click to reveal witch alter ego">
+              <div class="portrait-flip-inner">
+                <div class="portrait-face portrait-front">
+                  <div class="portrait-wrapper">
+                    <img src="assets/images/bride.png" alt="Bhagya Sri — the Bride" loading="lazy" />
+                  </div>
+                  <span class="alter-ego-hint">✨ Tap to reveal</span>
+                </div>
+                <div class="portrait-face portrait-back">
+                  <div class="portrait-wrapper wizard-wrapper ravenclaw-wrapper">
+                    <img src="assets/images/bride_witch.png" alt="Bhagya Sri — Ravenclaw Witch" loading="lazy" />
+                  </div>
+                  <span class="alter-ego-hint blue-hint">🧙‍♀️ Ravenclaw Witch</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="card-name">Bhagya Sri</h3>
+            <p class="card-role">The Bride · Brightest Witch · Ravenclaw</p>
+            <p class="card-bio">
+              The Hermione Granger of our story. Glasses? Check. Smarter than everyone in the room?
+              Double check. The kind of witch who organises her spell-books by colour AND subject.
+              She has a laugh that lights up entire corridors of Hogwarts and a heart warm enough to
+              melt even a Dementor. When she said YES, Gryffindor Tower threw a party that lasted
+              <em>three days.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SECTION 4 — LOVE STORY
+  ============================================================ -->
+    <section id="love-story" class="hp-section">
+      <div class="section-inner">
+        <h2 class="section-title reveal">The Beginning of Their Magical Journey</h2>
+        <!-- <p class="section-subtitle reveal">"Fate at the Temple"</p> -->
+
+        <div class="story-block reveal">
+          <p class="story-text">
+            Fate — a notoriously clumsy matchmaker — arranged for them to meet at the most
+            sacred of Muggle places: the <em>Temple of Lord Venkateswara.</em>
+            Perhaps it was divine intervention, or perhaps the universe simply knew
+            that two people this well-matched shouldn't be kept apart any longer.
+            <br /><br />
+            They had a brief conversation — the kind that feels like a prologue
+            to a very long, very beautiful story. A few words. Some laughter.
+            And in that quiet moment between prayers and blessings, something clicked.
+            <br /><br />
+            He said yes. She said yes.
+            <em>And the stars above quietly rearranged themselves into the shape of a heart.</em>
+          </p>
+        </div>
+
+        <div class="story-block reveal" style="margin-top: 3rem;">
+          <p class="story-text">
+            The Sorting Hat, upon hearing of this union, reportedly muttered:<br />
+            <em>Finally! A union of Gryffindor courage and Ravenclaw wisdom. Even I couldn't have sorted a better match
+              myself!</em><br /><br />
+            Gryffindor's bravery met Ravenclaw's brilliance.<br />
+            And together, they became something even the greatest wizards<br />
+            couldn't have conjured — <em>perfectly, wonderfully themselves.</em>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+       SECTION 4.5 — MATRIMONIAL COUNTDOWN
+  ============================================================ -->
+    <section id="countdown-sec" class="hp-section">
+      <div class="section-inner">
+        <h2 class="section-title reveal" id="countdown-title">Time Until the Sacred Spell of Forever is Cast</h2>
+        <p class="section-subtitle reveal" id="countdown-subtitle">Time is flowing faster than a Golden Snitch...</p>
+
+        <div class="countdown-container reveal" id="wedding-countdown">
+          <div class="countdown-item">
+            <span class="countdown-value" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <div class="countdown-expired-msg hidden" id="countdown-expired">
+          ✨ Mischief Managed! The Magic Has Begun ✨
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SECTION 5 — WEDDING EVENTS
+  ============================================================ -->
+    <section id="events" class="hp-section">
+      <div class="section-inner">
+        <h2 class="section-title reveal">The Sacred Ceremonies</h2>
+        <p class="section-subtitle reveal">
+          Missing either is punishable by Bertie Bott's Every Flavour Beans — exclusively the bad ones.
+        </p>
+
+        <div class="events-grid">
+
+          <!-- WEDDING CEREMONY -->
+          <div class="event-card reveal">
+            <div class="event-seal" aria-hidden="true">
+              <img src="assets/images/zeelakarra_bellam.png" alt="Jeelakarra Bellam" class="event-seal-img" />
+            </div>
+            <h3 class="event-title">The Wedding</h3>
+            <div class="event-detail">
+              <span class="icon">📅</span>
+              <span>Wednesday, 26th August 2026</span>
+            </div>
+            <div class="event-detail">
+              <span class="icon">⏰</span>
+              <span>Sumuhurtham: 11:44 PM</span>
+            </div>
+            <div class="event-detail">
+              <span class="icon">📍</span>
+              <span>Mutyamala Convention Function Hall</span>
+            </div>
+            <a href="https://maps.app.goo.gl/udSG6cxarhLFVapR9" target="_blank" rel="noopener noreferrer"
+              class="map-link" id="wedding-map-link">
+              🗺 Open in Google Maps
+            </a>
+            <p class="event-quote">
+              Dress Code: No robes required, but avoid anything that outshines the bride. She has a wand.
+            </p>
+          </div>
+
+          <!-- RECEPTION -->
+          <div class="event-card reveal">
+            <div class="event-seal" aria-hidden="true">
+              <img src="assets/images/reception.png" alt="Reception" class="event-seal-img" />
+            </div>
+            <h3 class="event-title">The Reception</h3>
+            <div class="event-detail">
+              <span class="icon">📅</span>
+              <span>Friday, 28th August 2026</span>
+            </div>
+            <div class="event-detail">
+              <span class="icon">⏰</span>
+              <span>11:00 AM onwards</span>
+            </div>
+            <div class="event-detail">
+              <span class="icon">📍</span>
+              <span>Kshatriya Sankshema Parishath Kalyanamandapam</span>
+            </div>
+            <a href="https://maps.app.goo.gl/HhvHsyiPPHB7zp6P8" target="_blank" rel="noopener noreferrer"
+              class="map-link" id="reception-map-link">
+              🗺 Open in Google Maps
+            </a>
+            <p class="event-quote">
+              Lunch will be served. No Polyjuice Potion allowed. Come as yourself.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+       SECTION 6 — RSVP
+  ============================================================ -->
+    <section id="rsvp" class="hp-section">
+      <div class="section-inner rsvp-inner">
+        <h2 class="section-title reveal">Send Your Owl</h2>
+        <p class="rsvp-text reveal">
+          Please inform us of your attendance.<br />
+          Our owls are trained but <em>easily distracted by shiny things.</em><br />
+          Filling out this enchanted scroll works just as well — and far more reliably.
+        </p>
+        <div class="reveal">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBdtyMq_t5lCfBFF6xQTh5DGn0R2939dgNvu2UsxWMFgpDRw/viewform?usp=publish-editor"
+            target="_blank" rel="noopener noreferrer" class="btn-rsvp" id="rsvp-form-link">
+            <span class="rsvp-btn-emoji">🦉</span> Send via Owl Post
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+       SECTION 7 — FOOTER
+  ============================================================ -->
+    <footer id="footer">
+      <p class="footer-mischief reveal">Mischief Managed</p>
+      <p class="footer-sub reveal">
+        Two wizards. One epic love story. A lifetime of adventures ahead.<br />
+        <em>We solemnly swear that we are up to no good — but in the best possible way. 🪄</em>
+      </p>
+      <div class="footprints reveal" aria-hidden="true">
+        <span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span>
+      </div>
+      <p class="footer-names reveal">Sai Teja ❤️ Bhagya Sri</p>
+    </footer>
+
+
+  </div>
+  <!-- /PAGE 1 -->
+
+  <script src="assets/js/script.js?v=9"></script>
+</body>
+
+</html>

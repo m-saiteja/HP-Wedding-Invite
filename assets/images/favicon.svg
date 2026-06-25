@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <!-- Gryffindor Gold Gradient -->
+    <linearGradient id="gryffindor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#DAA520" />
+    </linearGradient>
+    <!-- Ravenclaw Bright Blue Gradient (to pop on dark background) -->
+    <linearGradient id="ravenclawBright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A90E2" />
+      <stop offset="100%" stop-color="#003366" />
+    </linearGradient>
+    <!-- Magical Glow for the Lightning Bolt -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle (Dark Magic Vibe) -->
+  <circle cx="60" cy="60" r="56" fill="#0A0A0A" stroke="url(#gryffindor)" stroke-width="4"/>
+  
+  <!-- 'S' in Gryffindor Gold -->
+  <text x="32" y="80" font-family="'Times New Roman', serif" font-size="55" font-weight="bold" fill="url(#gryffindor)" text-anchor="middle">S</text>
+  
+  <!-- 'B' in Ravenclaw Blue -->
+  <text x="88" y="80" font-family="'Times New Roman', serif" font-size="55" font-weight="bold" fill="url(#ravenclawBright)" text-anchor="middle">B</text>
+  
+  <!-- Lightning Bolt replacing the '&' in the center -->
+  <path d="M 64 25 L 48 62 L 58 62 L 52 92 L 74 54 L 62 54 Z" fill="#FFFFFF" filter="url(#glow)"/>
+</svg>
